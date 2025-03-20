@@ -4,7 +4,7 @@ import { createClient } from '@supabase/supabase-js';
 const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
 const supabaseAnonKey = process.env.REACT_APP_SUPABASE_ANON_KEY;
 const siteUrl = process.env.NODE_ENV === 'production' 
-  ? 'https://notekeeper-5kkb1avwr-devs-projects-9299f749.vercel.app'  // Replace with your actual production domain
+  ? 'https://notekeeper-lec-beta.vercel.app'  
   : 'http://localhost:5173';
 
 if (!supabaseUrl || !supabaseAnonKey) {
