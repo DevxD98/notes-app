@@ -1,15 +1,78 @@
 .notes-container {
+  display: flex;
+  height: 100vh;
+  background: #f5f5f7;
+}
+
+.notes-sidebar {
+  width: 300px;
+  background: #f5f5f7;
+  border-right: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.add-note-button {
+  margin: 1rem;
+  padding: 0.75rem;
+  background: #007AFF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.add-note-button:hover {
+  background: #0056b3;
+}
+
+.notes-list {
+  overflow-y: auto;
+}
+
+.note-item {
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.note-item:hover {
+  background: #e8e8e8;
+}
+
+.note-item.selected {
+  background: #e8e8e8;
+}
+
+.note-item h4 {
+  margin: 0 0 0.5rem;
+  color: #1d1d1f;
+}
+
+.note-item p {
+  margin: 0;
+  color: #86868b;
+  font-size: 0.9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.notes-content {
+  flex: 1;
   padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  background: white;
 }
 
 .note-form {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .note-input,
@@ -17,10 +80,11 @@
   width: 100%;
   padding: 12px;
   margin-bottom: 1rem;
-  border: 2px solid #e1e1e1;
+  border: 1px solid #e0e0e0;
   border-radius: 8px;
   font-size: 1rem;
-  transition: border-color 0.3s ease;
+  transition: all 0.2s ease;
+  background: #f5f5f7;
 }
 
 .note-textarea {
@@ -34,15 +98,47 @@
   border-color: #667eea;
 }
 
+.note-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start;
+  margin-top: 1rem;
+}
+
 .submit-button {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #007AFF;
   color: white;
   border: none;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-size: 1rem;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.submit-button:hover {
+  background: #0056b3;
+}
+
+.delete-button {
+  background: #ff3b30;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.delete-button:hover {
+  background: #d63030;
 }
 
 .submit-button:hover {

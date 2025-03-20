@@ -2,8 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
-import Dashboard from "./pages/Dashboard";
-import Home from "./pages/Home";
+import Notes from "./components/Notes/Notes";
 
 const ProtectedRoute = ({ children }) => {
   const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
@@ -17,18 +16,18 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={
-          isAuthenticated ? <Navigate to="/dashboard" /> : <Navigate to="/login" />
+          isAuthenticated ? <Navigate to="/notes" /> : <Navigate to="/login" />
         } />
         <Route path="/login" element={
-          isAuthenticated ? <Navigate to="/dashboard" /> : <LoginPage />
+          isAuthenticated ? <Navigate to="/notes" /> : <LoginPage />
         } />
-        <Route path="/dashboard" element={
+        <Route path="/notes" element={
           <ProtectedRoute>
-            <Dashboard />
+            <Notes />
           </ProtectedRoute>
         } />
         <Route path="/signup" element={
-          isAuthenticated ? <Navigate to="/dashboard" /> : <SignUpPage />
+          isAuthenticated ? <Navigate to="/notes" /> : <SignUpPage />
         } />
       </Routes>
     </Router>
