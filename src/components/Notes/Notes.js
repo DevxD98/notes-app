@@ -57,7 +57,13 @@ const Notes = () => {
 
       if (error) throw error;
 
-      setNotes([data[0], ...notes]);
+      // Add null check before accessing data[0]
+      if (data && data[0]) {
+        setNotes([data[0], ...notes]);
+      } else {
+        // Refresh notes list if data is not returned
+        await fetchNotes();
+      }
       setNewNote({ title: '', content: '' });
       setError('');
     } catch (error) {
