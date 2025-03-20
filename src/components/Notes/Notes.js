@@ -110,14 +110,11 @@ const Notes = () => {
 
       if (error) throw error;
 
+      const updatedNote = { ...selectedNote, title: newNote.title, content: newNote.content };
       setNotes(notes.map(note =>
-        note.id === selectedNote.id
-          ? { ...note, title: newNote.title, content: newNote.content }
-          : note
+        note.id === selectedNote.id ? updatedNote : note
       ));
-      setNewNote({ title: '', content: '' });
-      setSelectedNote(null);
-      setIsEditing(false);
+      setSelectedNote(updatedNote);
       setError('');
     } catch (error) {
       setError(error.message);
