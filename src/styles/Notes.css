@@ -2,6 +2,13 @@
   display: flex;
   height: 100vh;
   background: #f5f5f7;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .notes-container {
+    flex-direction: column;
+  }
 }
 
 .notes-sidebar {
@@ -11,6 +18,16 @@
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .notes-sidebar {
+    width: 100%;
+    height: auto;
+    max-height: 40vh;
+    border-right: none;
+    border-bottom: 1px solid #e0e0e0;
+  }
 }
 
 .add-note-button {
@@ -66,8 +83,15 @@
 
 .notes-content {
   flex: 1;
-  padding: 2rem;
+  padding: clamp(1rem, 5vw, 2rem);
   background: white;
+}
+
+@media (max-width: 768px) {
+  .notes-content {
+    height: 60vh;
+    overflow-y: auto;
+  }
 }
 
 .note-form {
