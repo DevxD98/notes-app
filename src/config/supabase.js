@@ -8,9 +8,9 @@ const siteUrl = process.env.NODE_ENV === 'production'
   : 'http://localhost:3001';
 
 // Ensure environment variables are loaded
-if (typeof supabaseUrl === 'undefined' || typeof supabaseAnonKey === 'undefined') {
-  console.error('Environment variables not loaded. Please check your .env file and Vite configuration.');
-  throw new Error('Missing Supabase environment variables. Check .env file.');
+if (!supabaseUrl || !supabaseAnonKey) {
+  console.error('Supabase environment variables are missing. Please check your .env file.');
+  throw new Error('Missing Supabase environment variables. Make sure REACT_APP_SUPABASE_URL and REACT_APP_SUPABASE_ANON_KEY are set in your .env file.');
 }
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
