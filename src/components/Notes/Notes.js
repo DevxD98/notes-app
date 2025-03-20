@@ -44,12 +44,15 @@ const Notes = () => {
     }
 
     try {
+      const { data: { user }, error: userError } = await supabase.auth.getUser();
+      if (userError) throw userError;
+
       const { data, error } = await supabase
         .from('notes')
         .insert([{
           title: newNote.title,
           content: newNote.content,
-          user_id: supabase.auth.user()?.id
+          user_id: user.id
         }]);
 
       if (error) throw error;
