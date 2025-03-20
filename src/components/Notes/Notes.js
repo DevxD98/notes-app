@@ -34,6 +34,11 @@ const Notes = () => {
       ...prev,
       [name]: value
     }));
+    
+    if (name === 'content') {
+      e.target.style.height = 'auto';
+      e.target.style.height = `${e.target.scrollHeight}px`;
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -65,6 +70,8 @@ const Notes = () => {
         await fetchNotes();
       }
       setNewNote({ title: '', content: '' });
+      setSelectedNote(null);
+      setIsEditing(false);
       setError('');
     } catch (error) {
       setError(error.message);
@@ -81,6 +88,10 @@ const Notes = () => {
       if (error) throw error;
 
       setNotes(notes.filter(note => note.id !== noteId));
+      setNewNote({ title: '', content: '' });
+      setSelectedNote(null);
+      setIsEditing(false);
+      setError('');
     } catch (error) {
       console.error('Error deleting note:', error.message);
     }

@@ -89,7 +89,11 @@
 
 .note-textarea {
   min-height: 150px;
-  resize: vertical;
+  height: auto;
+  overflow-y: hidden;
+  resize: none;
+  line-height: 1.6;
+  padding: 16px;
 }
 
 .note-input:focus,
