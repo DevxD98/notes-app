@@ -10,6 +10,7 @@ const SignUp = () => {
     confirmPassword: ""
   });
   const [error, setError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -52,7 +53,10 @@ const SignUp = () => {
 
       if (error) throw error;
 
-      navigate("/login");
+      setSuccessMessage("Account created successfully! Please check your email for confirmation.");
+      setTimeout(() => {
+        navigate("/login");
+      }, 3000);
     } catch (error) {
       setError(error.message || "Error creating account");
     }
@@ -99,6 +103,7 @@ const SignUp = () => {
           </div>
           
           {error && <div className="error-message">{error}</div>}
+          {successMessage && <div className="success-message">{successMessage}</div>}
           
           <button type="submit" className="login-button">
             Sign Up
